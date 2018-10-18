@@ -1,6 +1,13 @@
+import mysql.connector
+
+con = mysql.connector.connect(user='root',password='root',host='127.0.0.1',port='3306')
+
+cursor = con.cursor()
+
 def add_instructor(ID,name,dept_name)
     cursor.execute("use university")
     cursor.execute("insert into instructor values(",ID,",'",name,"','"dept_name,"');")
+    return;
 
 def search_department()
     cursor.execute("use universtiy")
@@ -55,3 +62,8 @@ def main_interface():
 
     
 main_interface()
+
+
+cursor.close()
+con.close()
+
